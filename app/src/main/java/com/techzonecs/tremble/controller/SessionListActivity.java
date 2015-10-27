@@ -7,8 +7,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 
 import com.techzonecs.tremble.R;
+
+import java.util.ArrayList;
 
 public class SessionListActivity extends ListActivity {
 
@@ -30,6 +33,16 @@ public class SessionListActivity extends ListActivity {
 
 
 
+    }
+
+    private void populateSessionList() {
+        // Construct the data source
+        ArrayList<User> arrayOfUsers = User.getUsers();
+        // Create the adapter to convert the array to views
+        CustomUsersAdapter adapter = new CustomUsersAdapter(this, arrayOfUsers);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) findViewById(R.id.lvUsers);
+        listView.setAdapter(adapter);
     }
 
 }
