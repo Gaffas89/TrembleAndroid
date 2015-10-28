@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.ListView;
 
 import com.techzonecs.tremble.R;
+import com.techzonecs.tremble.model.Session;
 
+import java.net.URI;
 import java.util.ArrayList;
 
 public class SessionListActivity extends ListActivity {
@@ -37,7 +39,18 @@ public class SessionListActivity extends ListActivity {
 
     private void populateSessionList() {
         // Construct the data source
-        ArrayList<User> arrayOfUsers = User.getUsers();
+        ArrayList<Session> arrayOfSessions;
+
+        try {
+
+            URI uri = new URI("");
+
+            
+
+        }
+        catch (Exception e){
+
+        }
         // Create the adapter to convert the array to views
         CustomUsersAdapter adapter = new CustomUsersAdapter(this, arrayOfUsers);
         // Attach the adapter to a ListView
@@ -46,3 +59,5 @@ public class SessionListActivity extends ListActivity {
     }
 
 }
+
+
