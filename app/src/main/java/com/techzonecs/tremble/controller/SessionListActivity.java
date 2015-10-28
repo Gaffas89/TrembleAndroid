@@ -45,17 +45,17 @@ public class SessionListActivity extends ListActivity {
 
             URI uri = new URI("");
 
-            
+
 
         }
         catch (Exception e){
 
         }
         // Create the adapter to convert the array to views
-        CustomUsersAdapter adapter = new CustomUsersAdapter(this, arrayOfUsers);
+        //CustomUsersAdapter adapter = new CustomUsersAdapter(this, arrayOfUsers);
         // Attach the adapter to a ListView
-        ListView listView = (ListView) findViewById(R.id.lvUsers);
-        listView.setAdapter(adapter);
+       // ListView listView = (ListView) findViewById(R.id.lvUsers);
+        //listView.setAdapter(adapter);
     }
 
 }
