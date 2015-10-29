@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -16,6 +17,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.techzonecs.tremble.R;
 import com.techzonecs.tremble.model.Session;
 import com.techzonecs.tremble.utilities.AppController;
+import com.techzonecs.tremble.utilities.LogInAsyncTask;
 import com.techzonecs.tremble.utilities.LoginConnection;
 import com.techzonecs.tremble.utilities.SessionConnection;
 
@@ -39,10 +41,16 @@ public class LoginPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (longInValidaion()){
+                    Log.d("LOGINPAGEACTIVITY", "SISID: "+etSISID.getText().toString()+" PASSWORD: "+etPassword.getText().toString());
+//                    LoginConnection lc = new LoginConnection();
+//                    lc.lpa = LoginPageActivity.this;
+//                    lc.logIn(etSISID.getText().toString(), etPassword.getText().toString());
+
+                    new LogInAsyncTask(etSISID.getText().toString(), etPassword.getText().toString());
+
 
                 } else {
-                    LoginConnection lc = new LoginConnection();
-                    lc.logIn(etSISID.getText().toString(), etPassword.getText().toString());
+                    Toast.makeText(LoginPageActivity.this, "Log in failed! Check Credentials..", Toast.LENGTH_SHORT).show();
                 }
             }
         });
